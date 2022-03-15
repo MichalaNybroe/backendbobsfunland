@@ -16,7 +16,7 @@ public class ActivityRESTController {
     @Autowired
     ActivityRepository activityRepository;
 
-    @GetMapping("/Activity")
+    @GetMapping("/activity")
     public List<Activity> readAllactivities() {
         return activityRepository.findAll();
     }
