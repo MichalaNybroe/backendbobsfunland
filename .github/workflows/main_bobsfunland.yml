@@ -25,7 +25,7 @@ jobs:
         run: mvn clean install --batch-mode
         env:
           url: ${{ secrets.url }}
-          username: ${{ secrets.user }}
+          username: ${{ secrets.username }}
           password: ${{ secrets.password }}
 
       - name: Upload artifact for deployment job
