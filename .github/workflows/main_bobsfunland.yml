@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - pokemonkea
+name: Build and deploy JAR app to Azure Web App - BobsFunLand
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         run: mvn clean install --batch-mode
         env:
           url: ${{ secrets.url }}
-          db_user: ${{ secrets.user }}
+          username: ${{ secrets.user }}
           password: ${{ secrets.password }}
 
       - name: Upload artifact for deployment job
@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'pokemonkea'
+          app-name: 'BobsFunLand'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B84A8B16256D43F9B8BE8B2A6E056599 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DDE84518CB2E4C549AD575BD012EB15A }}
           package: '*.jar'
