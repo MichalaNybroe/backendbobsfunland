@@ -16,9 +16,9 @@ public class Booking {
     private String date;
     private String time;
     private int nrOfParticipants;
-    private String bookName;
-    private String bookEmail;
-    private String bookPhone;
+    private String customerName;
+    private String customerEmail;
+    private String customerPhone;
 
 
     @ManyToOne
@@ -74,28 +74,28 @@ public class Booking {
         this.instructor = instructor;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setCustomerName(String bookName) {
+        this.customerName = bookName;
     }
 
-    public String getBookEmail() {
-        return bookEmail;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setBookEmail(String bookEmail) {
-        this.bookEmail = bookEmail;
+    public void setCustomerEmail(String bookEmail) {
+        this.customerEmail = bookEmail;
     }
 
-    public String getBookPhone() {
-        return bookPhone;
+    public String getCustomerPhone() {
+        return customerPhone;
     }
 
-    public void setBookPhone(String bookPhone) {
-        this.bookPhone = bookPhone;
+    public void setCustomerPhone(String bookPhone) {
+        this.customerPhone = bookPhone;
     }
 }
 
