@@ -16,6 +16,9 @@ public class Booking {
     private String date;
     private String time;
     private int nrOfParticipants;
+    private String bookName;
+    private String bookEmail;
+    private String bookPhone;
 
 
     @ManyToOne
@@ -70,4 +73,29 @@ public class Booking {
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getBookEmail() {
+        return bookEmail;
+    }
+
+    public void setBookEmail(String bookEmail) {
+        this.bookEmail = bookEmail;
+    }
+
+    public String getBookPhone() {
+        return bookPhone;
+    }
+
+    public void setBookPhone(String bookPhone) {
+        this.bookPhone = bookPhone;
+    }
 }
+
