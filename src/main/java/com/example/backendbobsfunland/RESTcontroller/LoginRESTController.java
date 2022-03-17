@@ -29,16 +29,7 @@ public class LoginRESTController {
     if(inst.getEmail().equals(instructor.getEmail()) && inst.getPassword().equals(instructor.getPassword())){
 
        //session.setAttribute("email", inst.getEmail());
-
        response.sendRedirect("/index");
-
-
      }
-
-
-
   }
-
-
-
 }
