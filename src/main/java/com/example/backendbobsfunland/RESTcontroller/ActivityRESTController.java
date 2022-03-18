@@ -3,9 +3,7 @@ package com.example.backendbobsfunland.RESTcontroller;
 import com.example.backendbobsfunland.model.Activity;
 import com.example.backendbobsfunland.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class ActivityRESTController {
     @GetMapping("/activity")
     public List<Activity> readAllactivities() {
         return activityRepository.findAll();
+    }
+
+    @GetMapping("/activity/{name}")
+    public Activity readActivityByName(@PathVariable String name) {
+       return activityRepository.findByName(name);
     }
 }

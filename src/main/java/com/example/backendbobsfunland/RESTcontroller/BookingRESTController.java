@@ -3,6 +3,7 @@ package com.example.backendbobsfunland.RESTcontroller;
 import com.example.backendbobsfunland.model.Booking;
 import com.example.backendbobsfunland.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,6 @@ public class BookingRESTController {
 
     @GetMapping("/booking")
     public List<Booking> readAllBookings() {
-        return bookingRepository.findAll();
+        return bookingRepository.findAll(Sort.by("date").ascending().and(Sort.by("time").ascending()));
     }
 }
