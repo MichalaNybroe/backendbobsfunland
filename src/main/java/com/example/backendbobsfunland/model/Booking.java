@@ -22,7 +22,6 @@ public class Booking {
     @JoinColumn(name = "email")
     private Instructor instructor;
 
-
     public int getOrderNumber() {
         return orderNumber;
     }
