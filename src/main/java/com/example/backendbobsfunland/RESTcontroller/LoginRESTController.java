@@ -19,16 +19,19 @@ public class LoginRESTController {
   InstructorRepository instructorRepository;
 
   @PostMapping("/login")
-  public void login(HttpSession session, HttpServletResponse response, @RequestBody Instructor instructor) throws IOException {
+  public Boolean login(HttpSession session, HttpServletResponse response, @RequestBody Instructor instructor) throws IOException {
 
-    Instructor inst = instructorRepository.findByName("email");
+    Instructor inst = instructorRepository.findByEmail(instructor.getEmail());
 
      if(inst.getEmail().equals(instructor.getEmail()) && inst.getPassword().equals(instructor.getPassword())){
 
-       session.setAttribute("email", inst.getEmail());
+       //session.setAttribute("email", inst.getEmail());
 
-       response.sendRedirect("/index");
+       //response.sendRedirect("/index");
+       return true;
+
      }
+     return false;
   }
 
 
