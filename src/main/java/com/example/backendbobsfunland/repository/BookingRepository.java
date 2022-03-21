@@ -9,5 +9,5 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
     List<Booking> findAll(Sort sort);
-    Booking findByCustomerPhone(String CustomerPhone);
+    Booking deleteByCustomerPhone(String CustomerPhone);
 }

@@ -29,9 +29,8 @@ public class BookingRESTController {
     }
 
     @DeleteMapping("/booking")
-    public void deleteBooking(Booking booking){
-       Booking booking1 = bookingRepository.findByCustomerPhone(booking.getCustomerPhone());
-       bookingRepository.delete(booking1);
+    public void deleteBooking(@RequestBody Booking booking){
+        bookingRepository.deleteByCustomerPhone(booking.getCustomerPhone());
     }
 
 }
