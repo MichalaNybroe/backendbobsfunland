@@ -27,4 +27,11 @@ public class BookingRESTController {
     public List<Booking> readAllBookings() {
         return bookingRepository.findAll(Sort.by("date").ascending().and(Sort.by("time").ascending()));
     }
+
+    @DeleteMapping("/booking")
+    public void deleteBooking(Booking booking){
+       Booking booking1 = bookingRepository.findByCustomerPhone(booking.getCustomerPhone());
+       bookingRepository.delete(booking1);
+    }
+
 }
