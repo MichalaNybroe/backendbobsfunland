@@ -9,4 +9,6 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
     List<Booking> findAll(Sort sort);
+
+    List<Booking> searchBookingByCustomerEmailOrCustomerPhone(String inpEmailOrPhone);
 }
