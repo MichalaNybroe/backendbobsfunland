@@ -25,8 +25,11 @@ public class BookingRESTController {
     @PostMapping("/booking")
     @ResponseStatus(HttpStatus.CREATED)
     public Booking createBooking(@RequestBody Booking booking) {
-
         Customer customer = customerRepository.findByEmail(booking.getCustomer().getEmail());
+
+        if (customer == null) {
+            customerRepository.save(booking.getCustomer());
+        }
 
         return bookingRepository.save(booking);
     }
@@ -42,7 +45,7 @@ public class BookingRESTController {
     }
 
     @DeleteMapping("/booking")
-    public void deleteBooking(@RequestBody Booking booking){
+    public void deleteBooking(@RequestBody Booking booking) {
         bookingRepository.delete(booking);
     }
 
