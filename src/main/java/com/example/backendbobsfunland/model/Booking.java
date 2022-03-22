@@ -22,13 +22,21 @@ public class Booking {
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "instructorEmail")
+    @JoinColumn(name = "instructor_email")
     private Instructor instructor;
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "customerEmail")
+    @JoinColumn(name = "customer_email")
     private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public int getOrderNumber() {
         return orderNumber;

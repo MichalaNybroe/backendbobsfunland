@@ -18,7 +18,39 @@ public class Customer {
     private String phoneNumber;
 
     @OneToMany
-    @JoinColumn(name = "customerEmail")
+    @JoinColumn(name = "customer_email")
     @JsonBackReference
     private Set<Booking> bookings = new HashSet<>();
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String customer_email) {
+        this.email = customer_email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }

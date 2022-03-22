@@ -15,11 +15,11 @@ public class Instructor {
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "accessLevel")
+    @JoinColumn(name = "access_level")
     private Access access;
 
     @OneToMany
-    @JoinColumn(name = "instructorEmail")
+    @JoinColumn(name = "instructor_email")
     @JsonBackReference
     private Set<Booking> bookings = new HashSet<>();
 
@@ -53,5 +53,13 @@ public class Instructor {
 
     public void setBookings(Set<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    public Access getAccess() {
+        return access;
+    }
+
+    public void setAccess(Access access) {
+        this.access = access;
     }
 }
