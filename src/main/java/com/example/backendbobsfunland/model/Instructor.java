@@ -2,10 +2,7 @@ package com.example.backendbobsfunland.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,12 +11,15 @@ public class Instructor {
 
     @Id
     private String email;
-
     private String name;
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "access_level")
+    private Access access;
+
     @OneToMany
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "instructor_email")
     @JsonBackReference
     private Set<Booking> bookings = new HashSet<>();
 
@@ -53,5 +53,13 @@ public class Instructor {
 
     public void setBookings(Set<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    public Access getAccess() {
+        return access;
+    }
+
+    public void setAccess(Access access) {
+        this.access = access;
     }
 }
