@@ -10,7 +10,7 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
     List<Booking> findAll(Sort sort);
 
-    List<Booking> searchBookingByCustomerEmailOrCustomerPhone(String emailOrPhoneInput);
+    List<Booking> searchBookingByCustomerEmail(String email);
 
     Booking deleteByCustomerPhone(String CustomerPhone);
 
