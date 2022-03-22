@@ -36,6 +36,6 @@ public class BookingRESTController {
 
     @DeleteMapping("/booking")
     public void deleteBooking(@RequestBody Booking booking){
-        bookingRepository.deleteByCustomerPhone(booking.getCustomerPhone());
+        bookingRepository.delete(booking);
     }
 }
