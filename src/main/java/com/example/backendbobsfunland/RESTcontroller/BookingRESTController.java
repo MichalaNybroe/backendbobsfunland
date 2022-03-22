@@ -23,6 +23,12 @@ public class BookingRESTController {
         return bookingRepository.save(booking);
     }
 
+    @PostMapping("/search")
+    @ResponseStatus(HttpStatus.FOUND)
+    public List<Booking> searchBookings(@RequestBody String email) {
+        return bookingRepository.searchBookingByCustomerEmail(email);
+    }
+
     @GetMapping("/booking")
     public List<Booking> readAllBookings() {
         return bookingRepository.findAll(Sort.by("date").ascending().and(Sort.by("time").ascending()));
@@ -32,5 +38,4 @@ public class BookingRESTController {
     public void deleteBooking(@RequestBody Booking booking){
         bookingRepository.delete(booking);
     }
-
 }
