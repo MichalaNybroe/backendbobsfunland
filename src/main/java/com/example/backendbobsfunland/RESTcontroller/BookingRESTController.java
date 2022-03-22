@@ -33,7 +33,7 @@ public class BookingRESTController {
 
     @PostMapping("/search")
     public List<Booking> searchBookings(@RequestBody String email) {
-        Customer customer = customerRepository(email).get();
+        Customer customer = customerRepository.findByEmail(email);
         return bookingRepository.findByCustomer(customer);
     }
 
