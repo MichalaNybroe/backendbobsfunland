@@ -1,5 +1,7 @@
 package com.example.backendbobsfunland.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,14 +18,17 @@ public class Booking {
     private String date;
     private String time;
     private int nrOfParticipants;
-    private String customerName;
-    private String customerEmail;
-    private String customerPhone;
 
 
     @ManyToOne
-    @JoinColumn(name = "email")
+    @NotNull
+    @JoinColumn(name = "instructorEmail")
     private Instructor instructor;
+
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "customerEmail")
+    private Customer customer;
 
     public int getOrderNumber() {
         return orderNumber;
@@ -71,30 +76,6 @@ public class Booking {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String bookName) {
-        this.customerName = bookName;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String bookEmail) {
-        this.customerEmail = bookEmail;
-    }
-
-    public String getCustomerPhone() {
-        return customerPhone;
-    }
-
-    public void setCustomerPhone(String bookPhone) {
-        this.customerPhone = bookPhone;
     }
 }
 

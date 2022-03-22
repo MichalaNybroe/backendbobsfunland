@@ -19,7 +19,7 @@ public class Instructor {
     private Access access;
 
     @OneToMany
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "instructorEmail")
     @JsonBackReference
     private Set<Booking> bookings = new HashSet<>();
 
