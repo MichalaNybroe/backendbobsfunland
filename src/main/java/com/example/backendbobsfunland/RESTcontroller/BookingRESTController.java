@@ -38,4 +38,6 @@ public class BookingRESTController {
     public void deleteBooking(@RequestBody Booking booking){
         bookingRepository.deleteByCustomerPhone(booking.getCustomerPhone());
     }
+
+
 }

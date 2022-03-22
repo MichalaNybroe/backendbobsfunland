@@ -15,25 +15,18 @@ import java.util.List;
 @CrossOrigin
 public class LoginRESTController {
 
-  @Autowired
-  InstructorRepository instructorRepository;
+    @Autowired
+    InstructorRepository instructorRepository;
 
-  @PostMapping("/login")
-  public Boolean login(HttpSession session, HttpServletResponse response, @RequestBody Instructor instructor) throws IOException {
+    @PostMapping("/login")
+    public Instructor login(@RequestBody Instructor instructor) throws IOException {
 
-    Instructor inst = instructorRepository.findByEmail(instructor.getEmail());
+        Instructor inst = instructorRepository.findByEmail(instructor.getEmail());
 
-     if(inst.getEmail().equals(instructor.getEmail()) && inst.getPassword().equals(instructor.getPassword())){
+        if (inst.getEmail().equals(instructor.getEmail()) && inst.getPassword().equals(instructor.getPassword())) {
+            return inst;
+        }
 
-       //session.setAttribute("email", inst.getEmail());
-
-       //response.sendRedirect("/index");
-       return true;
-
-     }
-     return false;
-  }
-
-
-
+        return null;
+    }
 }

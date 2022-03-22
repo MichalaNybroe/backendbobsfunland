@@ -2,10 +2,7 @@ package com.example.backendbobsfunland.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,9 +11,12 @@ public class Instructor {
 
     @Id
     private String email;
-
     private String name;
     private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "accessLevel")
+    private Access access;
 
     @OneToMany
     @JoinColumn(name = "email")
