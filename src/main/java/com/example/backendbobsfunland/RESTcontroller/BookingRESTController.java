@@ -32,9 +32,8 @@ public class BookingRESTController {
     }
 
     @PostMapping("/search")
-    @ResponseStatus(HttpStatus.FOUND)
     public List<Booking> searchBookings(@RequestBody String email) {
-        return bookingRepository.searchBookingByCustomerEmail(email);
+        return bookingRepository.findByCustomerEmail(email);
     }
 
     @GetMapping("/booking")
