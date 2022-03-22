@@ -1,6 +1,7 @@
 package com.example.backendbobsfunland.RESTcontroller;
 
 import com.example.backendbobsfunland.model.Booking;
+import com.example.backendbobsfunland.model.Customer;
 import com.example.backendbobsfunland.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -25,7 +26,8 @@ public class BookingRESTController {
 
     @PostMapping("/search")
     public List<Booking> searchBookings(@RequestBody String email) {
-        return bookingRepository.findByCustomerEmail(email);
+        Customer customer = customerRepository(email).get();
+        return bookingRepository.findByCustomer(customer);
     }
 
     @GetMapping("/booking")
@@ -37,6 +39,4 @@ public class BookingRESTController {
     public void deleteBooking(@RequestBody Booking booking){
         bookingRepository.delete(booking);
     }
-
-
 }
