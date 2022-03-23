@@ -58,40 +58,4 @@ public class BookingRESTController {
             System.out.println("There is no booking with that order number");
         }
     }
-/*
-    @PutMapping("/booking")
-    public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking){
-
-        Optional<Booking> optBooking = bookingRepository.findById(booking.getOrderNumber());
-
-        if(optBooking.isPresent()){
-            bookingRepository.save(booking);
-            return  new ResponseEntity<Booking>(booking, HttpStatus.OK);
-        } else{
-            Booking bookingNotFound = new Booking();
-            bookingNotFound.getCustomer().setName("BOOKING NOT FOUND" + booking.getOrderNumber());
-
-            return new ResponseEntity<Booking>(bookingNotFound, HttpStatus.NOT_FOUND);
-        }
-    }
-
- */
-
-    @PutMapping("/booking")
-    public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking){
-
-        Optional<Booking> optBooking = bookingRepository.findById(booking.getOrderNumber());
-        System.out.println("vi er i backend" + booking);
-        System.out.println(optBooking);
-
-        if(optBooking.isPresent()){
-            bookingRepository.save(booking);
-            return  new ResponseEntity<Booking>(booking, HttpStatus.OK);
-        } else{
-            Booking bookingNotFound = new Booking();
-            bookingNotFound.getCustomer().setName("BOOKING NOT FOUND" + booking.getOrderNumber());
-
-            return new ResponseEntity<Booking>(bookingNotFound, HttpStatus.NOT_FOUND);
-        }
-    }
 }
