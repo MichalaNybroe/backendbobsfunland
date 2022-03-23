@@ -36,7 +36,8 @@ public class BookingRESTController {
 
     @PostMapping("/search")
     public List<Booking> searchBookings(@RequestBody String email) {
-        return bookingRepository.findByCustomerEmail(email);
+        Customer customer = customerRepository.findByEmail(email);
+        return bookingRepository.findByCustomer(customer);
     }
 
     @GetMapping("/booking")
@@ -48,9 +49,4 @@ public class BookingRESTController {
     public void deleteBooking(@RequestBody Booking booking) {
         bookingRepository.delete(booking);
     }
-    @GetMapping("/booking")
-    public void autoMail(@RequestBody Booking booking) {
-
-    }
-
 }
