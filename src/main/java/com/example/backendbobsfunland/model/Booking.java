@@ -1,7 +1,6 @@
 package com.example.backendbobsfunland.model;
 
 import com.sun.istack.NotNull;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;

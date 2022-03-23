@@ -55,4 +55,10 @@ public class BookingRESTController {
             System.out.println("There is no booking with that order number");
         }
     }
+
+    @PutMapping("/booking")
+    public Booking updateBooking(@RequestBody Booking booking){
+
+        return bookingRepository.save(booking);
+    }
 }
