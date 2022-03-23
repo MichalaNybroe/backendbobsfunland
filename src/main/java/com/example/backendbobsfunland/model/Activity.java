@@ -16,6 +16,7 @@ public class Activity {
     private String name;
     private int age;
     private double height;
+    private String information;
 
     @OneToMany
     @JoinColumn(name = "name")
@@ -45,6 +46,16 @@ public class Activity {
     public void setHeight(double height) {
         this.height = height;
     }
+
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
 
     public Set<Booking> getBookings() {
         return bookings;
