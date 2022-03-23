@@ -48,6 +48,9 @@ public class BookingRESTController {
     public void deleteBooking(@RequestBody Booking booking) {
         bookingRepository.delete(booking);
     }
+    @GetMapping("/booking")
+    public void autoMail(@RequestBody Booking booking) {
 
+    }
 
 }
