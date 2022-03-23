@@ -48,5 +48,11 @@ public class BookingRESTController {
     @DeleteMapping("/booking")
     public void deleteBooking(@RequestBody Booking booking) {
         bookingRepository.delete(booking);
+
+        Booking b = bookingRepository.findByOrderNumber(booking.getOrderNumber());
+
+        if (b == null){
+            System.out.println("There is no booking with that order number");
+        }
     }
 }
