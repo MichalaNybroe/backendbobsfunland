@@ -12,4 +12,6 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
     List<Booking> findAll(Sort sort);
 
     List<Booking> findByCustomer(Customer customer);
+
+    Booking findByOrderNumber(int orderNumber);
 }
