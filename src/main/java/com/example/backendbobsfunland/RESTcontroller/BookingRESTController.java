@@ -34,6 +34,11 @@ public class BookingRESTController {
 
         if (customer == null) {
             customerRepository.save(booking.getCustomer());
+        } else {
+            customer.setEmail(booking.getCustomer().getEmail());
+            customer.setName(booking.getCustomer().getName());
+            customer.setPhoneNumber(booking.getCustomer().getPhoneNumber());
+            customerRepository.save(customer);
         }
 
         return bookingRepository.save(booking);
@@ -99,10 +104,10 @@ public class BookingRESTController {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("This is the Subject Line!");
+            message.setSubject("Bobsfunland booking deleted");
 
             // Now set the actual message
-            message.setText("This is actual message");
+            message.setText("Your booking has been deleted");
 
             System.out.println("sending...");
             // Send message
