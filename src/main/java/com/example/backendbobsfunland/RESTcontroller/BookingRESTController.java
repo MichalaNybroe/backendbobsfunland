@@ -104,10 +104,10 @@ public class BookingRESTController {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("Bobsfunland booking deleted");
+            message.setSubject("Bobsfunland booking deleted.");
 
             // Now set the actual message
-            message.setText("Your booking has been deleted");
+            message.setText("Your booking has been deleted.");
 
             System.out.println("sending...");
             // Send message
